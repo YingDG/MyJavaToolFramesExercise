@@ -193,6 +193,13 @@
             <version>2.3.23</version>
         </dependency>
 
+        <!--unirest-->
+        <dependency>
+            <groupId>com.mashape.unirest</groupId>
+            <artifactId>unirest-java</artifactId>
+            <version>1.4.9</version>
+        </dependency>
+
         <!--junit4-->
         <dependency>
             <groupId>junit</groupId>
