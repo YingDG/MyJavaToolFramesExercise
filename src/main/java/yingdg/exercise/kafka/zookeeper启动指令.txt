@@ -1,0 +1,25 @@
+启动zookeeper
+zkserver
+
+切换到kafka安装
+cd /d D:\MQ\kafka_2.12-0.11.0.0\
+
+配置启动kafka
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+
+#demo
+
+创建topics(ip为zookeeper运行机器的ip)
+cd /d D:\MQ\kafka_2.12-0.11.0.0\bin\windows
+kafka-topics.bat --create --yingdg.exercise.zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+
+打开一个Producer(ip为kafka运行机器的ip)
+cd /d D:\MQ\kafka_2.12-0.11.0.0\bin\windows
+kafka-console-producer.bat --broker-list localhost:9092 --topic test
+
+打开一个Consumer(ip为zookeeper运行机器的ip)
+cd /d D:\MQ\kafka_2.12-0.11.0.0\bin\windows
+kafka-console-consumer.bat --yingdg.exercise.zookeeper localhost:2181 --topic test
+或
+kafka-console-producer.bat --bootstrap-server localhost:9092 --from-beginning --topic test

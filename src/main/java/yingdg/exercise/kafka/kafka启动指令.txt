@@ -1,0 +1,25 @@
+###启动
+
+#切换目录
+cd /d D:\MQ\kafka_2.12-0.11.0.0\bin\windows\
+
+#启动zookeeper
+yingdg.exercise.zookeeper-server-start.bat ../../config/yingdg.exercise.zookeeper.properties
+
+#启动broker
+kafka-server-start.bat ../../config/server.properties
+
+###运行
+
+#创建topic
+cd /d D:\MQ\kafka_2.12-0.11.0.0\bin\windows\
+kafka-topics.bat --create --yingdg.exercise.zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+或
+kafka-run-class.bat kafka.admin.TopicCommand --create --yingdg.exercise.zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic hellotest
+
+#启动producer
+kafka-console-producer.bat --broker-list localhost:9092 --topic test
+
+#启动consumer
+cd /d D:\MQ\kafka_2.12-0.11.0.0\bin\windows\
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --from-beginning --topic test
