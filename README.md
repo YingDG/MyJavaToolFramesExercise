@@ -77,4 +77,8 @@ NOSQL：
     
 模板引擎：
 
-    freemarker    
+    freemarker
+
+验证：
+    
+    JWT
