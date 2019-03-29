@@ -58,9 +58,9 @@
             <version>1.3.0</version>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>commons-logging</groupId>-->
-            <!--<artifactId>commons-logging</artifactId>-->
-            <!--<version>1.2</version>-->
+        <!--<groupId>commons-logging</groupId>-->
+        <!--<artifactId>commons-logging</artifactId>-->
+        <!--<version>1.2</version>-->
         <!--</dependency>-->
 
         <!--jedis-->
@@ -100,9 +100,9 @@
 
         <!--httpclient-->
         <!--<dependency>-->
-            <!--<groupId>org.apache.httpcomponents</groupId>-->
-            <!--<artifactId>httpclient</artifactId>-->
-            <!--<version>4.5.3</version>-->
+        <!--<groupId>org.apache.httpcomponents</groupId>-->
+        <!--<artifactId>httpclient</artifactId>-->
+        <!--<version>4.5.3</version>-->
         <!--</dependency>-->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -154,9 +154,9 @@
 
         <!--rocketmq client-->
         <!--<dependency>-->
-            <!--<groupId>org.apache.rocketmq</groupId>-->
-            <!--<artifactId>rocketmq-client</artifactId>-->
-            <!--<version>4.2.0</version>-->
+        <!--<groupId>org.apache.rocketmq</groupId>-->
+        <!--<artifactId>rocketmq-client</artifactId>-->
+        <!--<version>4.2.0</version>-->
         <!--</dependency>-->
         <!--rocketmq openmessaging-->
         <dependency>
@@ -219,7 +219,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
 
         <!--commons-net-->
@@ -229,5 +229,11 @@
             <version>3.6</version>
         </dependency>
 
+        <!--reactor-->
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-core</artifactId>
+            <version>3.1.10.RELEASE</version>
+        </dependency>
     </dependencies>
 </project>

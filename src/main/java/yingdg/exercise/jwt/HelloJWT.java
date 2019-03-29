@@ -18,19 +18,7 @@ import java.util.Map;
 public class HelloJWT {
     public static String salt = "MyJwt";
 
-    public static void main(String[] args) throws UnsupportedEncodingException {
-        String token = createToken();
-        System.out.println(token);
-
-        Map<String, Claim> claimMap = verify(token);
-        System.out.println(claimMap.get("a").asString());
-        System.out.println(claimMap.get("b").asString());
-
-        String oldToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoiYSIsImIiOiJiIiwiZXhwIjoxNTIxNzk0OTM5LCJpYXQiOjE1MjE3OTQ4Nzl9.nkv0pfE5-cmy_vHb2v8AxBuB48pl6OyTYjJ7U5DsfZY";
-        verify(oldToken);
-    }
-
-    private static String createToken() throws UnsupportedEncodingException {
+    public static String createToken() throws UnsupportedEncodingException {
         Date now = new Date();
 
         Calendar calendar = Calendar.getInstance();
@@ -49,10 +37,10 @@ public class HelloJWT {
         return token;
     }
 
-    private static Map<String, Claim> verify(String token) throws UnsupportedEncodingException {
+    public static Map<String, Claim> verify(String token) throws UnsupportedEncodingException {
         JWTVerifier verifier = JWT.require(Algorithm.HMAC256(salt)).build();
 
-        DecodedJWT decodedJWT = null;
+        DecodedJWT decodedJWT;
         try {
             decodedJWT = verifier.verify(token);
         } catch (Exception e) {
@@ -62,4 +50,15 @@ public class HelloJWT {
         return decodedJWT.getClaims();
     }
 
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        String token = createToken();
+        System.out.println(token);
+
+        Map<String, Claim> claimMap = verify(token);
+        System.out.println(claimMap.get("a").asString());
+        System.out.println(claimMap.get("b").asString());
+
+        String oldToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoiYSIsImIiOiJiIiwiZXhwIjoxNTIxNzk0OTM5LCJpYXQiOjE1MjE3OTQ4Nzl9.nkv0pfE5-cmy_vHb2v8AxBuB48pl6OyTYjJ7U5DsfZY";
+        verify(oldToken);
+    }
 }
