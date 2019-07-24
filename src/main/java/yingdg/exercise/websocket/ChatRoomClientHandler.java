@@ -19,7 +19,7 @@ import java.net.ProtocolException;
 import java.net.URI;
 
 /**
- * @author zdm
+ * @author yingdg
  * created in 2019/6/24 10:20 AM
  */
 public class ChatRoomClientHandler extends SimpleChannelInboundHandler<Object> {

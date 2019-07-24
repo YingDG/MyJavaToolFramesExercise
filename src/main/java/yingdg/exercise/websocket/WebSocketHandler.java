@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * @author zdm
+ * @author yingdg
  * created in 2019/6/24 10:14 AM
  */
 public class WebSocketHandler extends ChannelInboundHandlerAdapter {

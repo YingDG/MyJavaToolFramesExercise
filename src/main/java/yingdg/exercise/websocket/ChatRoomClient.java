@@ -21,7 +21,7 @@ import java.net.ProtocolException;
 import java.net.URI;
 
 /**
- * @author zdm
+ * @author yingdg
  * created in 2019/6/24 10:18 AM
  */
 public class ChatRoomClient {

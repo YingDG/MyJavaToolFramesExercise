@@ -14,13 +14,13 @@ import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.stream.ChunkedWriteHandler;
 
 /**
- * @author zdm
+ * @author yingdg
  * created in 2019/6/24 10:12 AM
  */
 public class WebSocketServer {
     public void run() {
-        EventLoopGroup bossGroup = new NioEventLoopGroup();
-        EventLoopGroup workGroup = new NioEventLoopGroup();
+        EventLoopGroup bossGroup = new NioEventLoopGroup(); // Acceptor线程池
+        EventLoopGroup workGroup = new NioEventLoopGroup(); // 处理真正的IO任务
 
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         serverBootstrap.group(bossGroup, workGroup)
