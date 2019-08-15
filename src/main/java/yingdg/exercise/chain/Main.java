@@ -2,6 +2,7 @@ package yingdg.exercise.chain;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.chain.Catalog;
+import org.apache.commons.chain.Chain;
 import org.apache.commons.chain.Command;
 import org.apache.commons.chain.Context;
 import org.apache.commons.chain.impl.CatalogFactoryBase;
@@ -35,16 +36,21 @@ public class Main {
         catalog.addCommand("c3", new Commands3());
         Map<String, Command> commands = ((Catalog2) catalog).getCommands();
         System.out.println(JSON.toJSONString(commands.keySet()));
+//        Command c3 = catalog.getCommand("c3");
+//        c3.execute(context);
+
 
         // 方式二
-        Command command = new CommandChain();
+        Chain chain = new CommandChain();
+        chain.addCommand(context -> {
+            System.out.println(context);
+            return Command.PROCESSING_COMPLETE;
+        });
 
         Context context = new ContextBase();
         context.put("k1", 1);
-        command.execute(context);
 
-//        Command c3 = catalog.getCommand("c3");
-//        c3.execute(context);
+        chain.execute(context);
     }
 
 }
